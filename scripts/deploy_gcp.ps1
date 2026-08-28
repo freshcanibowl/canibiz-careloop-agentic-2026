@@ -58,7 +58,7 @@ Invoke-GCloud run deploy $Service `
   --platform managed `
   --allow-unauthenticated `
   --service-account $SaEmail `
-  --max-instances 1 `
+  --max-instances 3 `
   --set-env-vars "GOOGLE_CLOUD_PROJECT=$ProjectId,GOOGLE_CLOUD_LOCATION=global,GOOGLE_GENAI_USE_VERTEXAI=true,CARELOOP_STORAGE_BACKEND=firestore,CARELOOP_AI_BACKEND=gemini,GEMINI_MODEL=gemini-3.5-flash"
 
 Write-Host "==> Removing legacy Gemini API key mount"

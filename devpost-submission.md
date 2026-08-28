@@ -144,26 +144,23 @@ Verified today:
 
 - Cloud Run deployment is live in project `ai-malaysia`.
 - Vertex AI ADC is used; no Gemini API key is mounted in the final runtime.
-- Task state is persisted in Firestore.
+- Task state and structured observation history are persisted in Firestore.
 - Gemini 3.5 Flash structured the live owner message successfully.
 - The live proof reached `LIVE PROOF PASS`.
 - A clean live-proof evidence image is available at `docs/evidence/live-proof-pass.png`.
-- Local regression has 13 passing tests.
+- Local regression has 17 passing tests.
 - Pre-submission file preflight passes.
 
 Still required:
 
-- public or properly shared repository URL;
 - public demo video URL;
-- evidence screenshots;
-- public demo-video URL;
 - Cloud Run and Firestore Console screenshots.
 
 ## Known Limitations
 
-- Observation history used by VetBrief remains in process memory; task state is persisted in Firestore.
-- Cloud Run is therefore capped at one instance for deterministic hackathon proof.
-- This is not production-grade distributed state. A pilot should persist observation history before multi-instance scaling.
+- Task state and structured observation history persist in Firestore, and the deploy script permits up to three Cloud Run instances.
+- The public demo has no end-user authentication or tenant isolation and must use synthetic data only.
+- A real pilot still requires authentication, tenant isolation, audit retention, and clinical validation.
 - The safety rules are workflow-routing examples, not clinically validated diagnostic rules.
 - CareLoop does not diagnose, prescribe, or replace veterinary judgment.
 - The current proof surface is API-first rather than a polished owner-facing UI.

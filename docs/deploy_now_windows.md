@@ -36,4 +36,4 @@ Screenshot:
 - `/health` JSON showing firestore + gemini + Gemini 3.5+
 
 ## Important
-The current demo persists task state in Firestore. Observation history used by VetBrief is still process-memory, so Cloud Run is pinned to `--max-instances 1` for the hackathon proof. Persisting observation history is a post-proof hardening task, not something to hide.
+The current demo persists task state and structured observation history in Firestore. Cloud Run permits up to three instances. Use synthetic demo data only: authentication and tenant isolation are still required before a real pilot.

@@ -1,5 +1,6 @@
 from dataclasses import asdict
 from app.models.care_plan import TaskStatus
+from app.models.observation import StructuredObservation
 
 
 class FirestoreTaskRepository:
@@ -47,3 +48,33 @@ class FirestoreTaskRepository:
             .stream()
         )
         return [self._hydrate(doc.to_dict()) for doc in docs]
+
+
+class FirestoreObservationRepository:
+    def __init__(self, project: str | None = None):
+        try:
+            from google.cloud import firestore
+        except ImportError as exc:
+            raise RuntimeError(
+                "Install google-cloud-firestore to use FirestoreObservationRepository"
+            ) from exc
+        self.db = firestore.Client(project=project)
+
+    def save(self, plan_id: str, observation: StructuredObservation):
+        payload = asdict(observation)
+        payload["plan_id"] = plan_id
+        document_id = f"{plan_id}:{observation.pet_id}:{observation.day}"
+        self.db.collection("careloop_observations").document(document_id).set(payload)
+
+    def list_for_plan(self, plan_id: str):
+        docs = (
+            self.db.collection("careloop_observations")
+            .where("plan_id", "==", plan_id)
+            .stream()
+        )
+        observations = []
+        for doc in docs:
+            payload = doc.to_dict()
+            payload.pop("plan_id", None)
+            observations.append(StructuredObservation(**payload))
+        return sorted(observations, key=lambda observation: observation.day)

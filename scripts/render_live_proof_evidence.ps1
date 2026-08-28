@@ -48,7 +48,7 @@ $graphics.DrawRectangle($borderPen, 62, 165, 720, 250)
 $graphics.DrawString("Cloud Run Runtime", $headingFont, $blueBrush, 92, 190)
 $runtime = @(
     "service: canibiz-careloop-agent",
-    "revision: canibiz-careloop-agent-00004-2nd",
+    "revision: canibiz-careloop-agent-00005-h9g",
     "traffic: 100%",
     "storage: firestore",
     "AI: gemini / gemini-3.5-flash",
@@ -80,7 +80,7 @@ $graphics.FillRectangle($whiteBrush, 62, 435, 1476, 330)
 $graphics.DrawRectangle($borderPen, 62, 435, 1476, 330)
 $graphics.DrawString("End-to-End Agentic Workflow Verified", $headingFont, $blueBrush, 92, 462)
 $steps = @(
-    "1  Vet plan → 11 typed tasks persisted to Firestore",
+    "1  Vet plan + observations → persisted to Firestore",
     "2  Owner text → Gemini structured stool=5, appetite=normal, vomiting=false",
     "3  Typed contract validated before workflow mutation",
     "4  Overdue tasks → REQUEST_OWNER_FOLLOW_UP actions",

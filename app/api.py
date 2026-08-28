@@ -5,7 +5,11 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
 from app.models.care_plan import CarePlan
-from app.runtime import build_task_repository, build_observation_structurer
+from app.runtime import (
+    build_observation_repository,
+    build_observation_structurer,
+    build_task_repository,
+)
 from app.services.task_state import apply_observation
 from app.services.safety_gate import evaluate_observation
 from app.services.followup_engine import detect_missing_actions
@@ -13,11 +17,11 @@ from app.services.vetbrief_builder import build_vetbrief
 from app.services.vetbrief_renderer import render_vetbrief
 from app.use_cases import create_follow_up_plan
 
-app = FastAPI(title="CaniBiz CareLoop Agent", version="0.2.0")
+app = FastAPI(title="CaniBiz CareLoop Agent", version="0.3.0")
 
 _task_repo = None
+_observation_repo = None
 _structurer = None
-_observations: dict[str, list] = {}
 
 
 def task_repo():
@@ -32,6 +36,13 @@ def structurer():
     if _structurer is None:
         _structurer = build_observation_structurer()
     return _structurer
+
+
+def observation_repo():
+    global _observation_repo
+    if _observation_repo is None:
+        _observation_repo = build_observation_repository()
+    return _observation_repo
 
 
 class PlanRequest(BaseModel):
@@ -75,7 +86,6 @@ def health():
 def create_plan(req: PlanRequest):
     plan = CarePlan(**req.model_dump())
     tasks = create_follow_up_plan(plan, task_repo())
-    _observations.setdefault(req.plan_id, [])
     return {"tasks": tasks}
 
 
@@ -92,7 +102,7 @@ def submit_observation(req: ObservationRequest):
     if hasattr(task_repo(), "save_dicts"):
         task_repo().save_dicts(updated)
 
-    _observations.setdefault(req.plan_id, []).append(obs)
+    observation_repo().save(req.plan_id, obs)
     decision = evaluate_observation(obs)
 
     return {
@@ -121,7 +131,7 @@ def vetbrief(req: VetBriefRequest):
         req.plan_id,
         req.pet_id,
         tasks,
-        _observations.get(req.plan_id, []),
+        observation_repo().list_for_plan(req.plan_id),
         req.through_day,
     )
     return {

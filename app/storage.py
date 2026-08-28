@@ -20,3 +20,20 @@ class InMemoryTaskRepository:
 
     def list_for_plan(self, plan_id):
         return [dict(t) for t in self._tasks.values() if t["plan_id"] == plan_id]
+
+
+class InMemoryObservationRepository:
+    def __init__(self):
+        self._observations = {}
+
+    def save(self, plan_id, observation):
+        key = (plan_id, observation.pet_id, observation.day)
+        self._observations[key] = observation
+
+    def list_for_plan(self, plan_id):
+        observations = [
+            observation
+            for (stored_plan_id, _, _), observation in self._observations.items()
+            if stored_plan_id == plan_id
+        ]
+        return sorted(observations, key=lambda observation: observation.day)

@@ -23,6 +23,4 @@ The health response must report:
 
 Then create a plan, submit an owner observation, run `/follow-up/check`, and request `/vetbrief`.
 
-Important: current demo observations are process-memory in the API; hackathon proof must
-demonstrate task state persistence in Firestore. Persisting observations themselves is the
-next hardening step if time permits.
+Important: task state and structured observation history persist in Firestore. The public hackathon service must use synthetic data only; authentication and tenant isolation are required before a real pilot.

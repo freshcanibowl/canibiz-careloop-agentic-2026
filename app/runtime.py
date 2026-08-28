@@ -1,6 +1,9 @@
 import os
-from app.storage import InMemoryTaskRepository
-from app.adapters.firestore_repository import FirestoreTaskRepository
+from app.storage import InMemoryObservationRepository, InMemoryTaskRepository
+from app.adapters.firestore_repository import (
+    FirestoreObservationRepository,
+    FirestoreTaskRepository,
+)
 from app.adapters.gemini_observation import GeminiObservationStructurer
 from app.services.observation_parser import parse_owner_observation
 
@@ -16,6 +19,17 @@ def build_task_repository():
         return FirestoreTaskRepository(project=os.getenv("GOOGLE_CLOUD_PROJECT") or None)
     if backend == "memory":
         return InMemoryTaskRepository()
+    raise ValueError(f"Unsupported CARELOOP_STORAGE_BACKEND={backend}")
+
+
+def build_observation_repository():
+    backend = os.getenv("CARELOOP_STORAGE_BACKEND", "memory").lower()
+    if backend == "firestore":
+        return FirestoreObservationRepository(
+            project=os.getenv("GOOGLE_CLOUD_PROJECT") or None
+        )
+    if backend == "memory":
+        return InMemoryObservationRepository()
     raise ValueError(f"Unsupported CARELOOP_STORAGE_BACKEND={backend}")
 
 

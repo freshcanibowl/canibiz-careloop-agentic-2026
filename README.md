@@ -8,6 +8,7 @@ CareLoop is a workflow aid. It does not diagnose, prescribe, or replace veterina
 
 - Vet care plan to typed follow-up tasks
 - Firestore-backed task persistence
+- Firestore-backed structured observation history
 - Gemini 3.5 Flash observation structuring through Vertex AI
 - Google GenAI SDK and Google ADK integration boundaries
 - Contract validation before model output changes workflow state
@@ -134,9 +135,9 @@ Interactive request schemas are available from the FastAPI `/docs` endpoint.
 - Safety decisions are deterministic workflow-routing examples, not clinically validated diagnostic rules.
 - Production deployments should add authentication before accepting real users.
 
-## Known limitation
+## Production boundary
 
-Task state is persisted in Firestore, but observation history used by VetBrief is currently process memory. The hackathon deployment is capped at one Cloud Run instance for deterministic proof. Production hardening must persist observation history before multi-instance scaling.
+Task state and structured observation history are persisted in Firestore. The deploy script permits up to three Cloud Run instances. The public hackathon service intentionally has no end-user authentication, so it must use synthetic demo data only; authentication, tenant isolation, audit retention, and clinical validation remain required before a real pilot.
 
 ## Evidence
 
