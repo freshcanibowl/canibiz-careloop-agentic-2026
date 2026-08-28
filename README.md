@@ -141,6 +141,8 @@ Task state is persisted in Firestore, but observation history used by VetBrief i
 ## Evidence
 
 - `scripts/live_proof.py` — fail-fast end-to-end proof
+- `scripts/render_live_proof_evidence.ps1` — renders the verified proof summary
+- `docs/evidence/live-proof-pass.png` — current Cloud Run live-proof evidence
 - `docs/devpost_proof_checklist.md` — evidence capture list
 - `docs/current_ship_gate.md` — proof gate and limitations
 - `docs/gemini_contract.md` — structured model boundary

@@ -133,11 +133,10 @@ Suggested outline:
 
 ## Screenshot Shot List
 
-1. Cloud Run service page showing the active CareLoop revision and service URL.
-2. `/health` JSON showing `firestore`, `gemini`, and `gemini-3.5-flash`.
-3. Terminal showing persisted tasks, structured observation, follow-up actions, VetBrief, and `LIVE PROOF PASS`.
-4. Firestore console showing `careloop_tasks` documents.
-5. Exported architecture diagram.
+1. **Ready:** `docs/evidence/live-proof-pass.png` — Cloud Run revision, runtime configuration, health result, persisted workflow, Gemini structure, follow-up actions, VetBrief, and `LIVE PROOF PASS`.
+2. **Ready:** `docs/architecture.png` — exported Google Cloud architecture diagram.
+3. **TODO:** Cloud Run Console page showing the active revision and service URL.
+4. **TODO:** Firestore Console showing `careloop_tasks` documents.
 
 ## Submission Readiness Notes
 
@@ -148,6 +147,7 @@ Verified today:
 - Task state is persisted in Firestore.
 - Gemini 3.5 Flash structured the live owner message successfully.
 - The live proof reached `LIVE PROOF PASS`.
+- A clean live-proof evidence image is available at `docs/evidence/live-proof-pass.png`.
 - Local regression has 13 passing tests.
 - Pre-submission file preflight passes.
 
@@ -157,7 +157,7 @@ Still required:
 - public demo video URL;
 - evidence screenshots;
 - public demo-video URL;
-- final evidence screenshots.
+- Cloud Run and Firestore Console screenshots.
 
 ## Known Limitations
 
