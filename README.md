@@ -15,6 +15,7 @@ CareLoop is a workflow aid. It does not diagnose, prescribe, or replace veterina
 - Missing-action detection with `REQUEST_OWNER_FOLLOW_UP`
 - Deterministic routing to `CONTINUE_MONITORING` or `PROFESSIONAL_REVIEW_REQUIRED`
 - Longitudinal VetBrief rendering
+- Responsive owner-facing workflow UI at `/`
 - FastAPI service deployed to Google Cloud Run
 
 ## Architecture
@@ -50,7 +51,7 @@ python scripts\preflight.py
 Expected verified result:
 
 ```text
-13 passed
+19 passed
 PRE-SUBMISSION FILE PREFLIGHT PASS
 ```
 
@@ -67,9 +68,12 @@ uvicorn app.api:app --host 127.0.0.1 --port 8080
 Open:
 
 ```text
+http://127.0.0.1:8080/
 http://127.0.0.1:8080/health
 http://127.0.0.1:8080/docs
 ```
+
+The root UI runs the complete care-plan → owner update → agent follow-up → VetBrief workflow against the same API used by the live proof.
 
 ## Google Cloud deployment
 
@@ -144,6 +148,10 @@ Task state and structured observation history are persisted in Firestore. The de
 - `scripts/live_proof.py` — fail-fast end-to-end proof
 - `scripts/render_live_proof_evidence.ps1` — renders the verified proof summary
 - `docs/evidence/live-proof-pass.png` — current Cloud Run live-proof evidence
+- `docs/evidence/live-ui-workflow.png` — public owner-facing workflow completion state
+- `docs/design/careloop-workspace-concept.png` — accepted UI concept
+- `docs/design/careloop-workspace-render.png` — browser-verified desktop implementation
+- `docs/design/careloop-workspace-mobile.png` — browser-verified mobile implementation
 - `docs/devpost_proof_checklist.md` — evidence capture list
 - `docs/current_ship_gate.md` — proof gate and limitations
 - `docs/gemini_contract.md` — structured model boundary

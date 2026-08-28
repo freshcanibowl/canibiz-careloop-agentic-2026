@@ -88,7 +88,7 @@ python scripts\preflight.py
 
 Current verified result:
 
-- `13 passed, 1 warning`
+- `19 passed, 1 warning`
 - `PRE-SUBMISSION FILE PREFLIGHT PASS`
 
 ### Live Cloud Run proof
@@ -134,9 +134,10 @@ Suggested outline:
 ## Screenshot Shot List
 
 1. **Ready:** `docs/evidence/live-proof-pass.png` — Cloud Run revision, runtime configuration, health result, persisted workflow, Gemini structure, follow-up actions, VetBrief, and `LIVE PROOF PASS`.
-2. **Ready:** `docs/architecture.png` — exported Google Cloud architecture diagram.
-3. **TODO:** Cloud Run Console page showing the active revision and service URL.
-4. **TODO:** Firestore Console showing `careloop_tasks` documents.
+2. **Ready:** `docs/evidence/live-ui-workflow.png` — public owner-facing workflow with persisted tasks, Gemini observation, agent actions, and VetBrief.
+3. **Ready:** `docs/architecture.png` — exported Google Cloud architecture diagram.
+4. **TODO:** Cloud Run Console page showing the active revision and service URL.
+5. **TODO:** Firestore Console showing `careloop_tasks` documents.
 
 ## Submission Readiness Notes
 
@@ -148,7 +149,7 @@ Verified today:
 - Gemini 3.5 Flash structured the live owner message successfully.
 - The live proof reached `LIVE PROOF PASS`.
 - A clean live-proof evidence image is available at `docs/evidence/live-proof-pass.png`.
-- Local regression has 17 passing tests.
+- Local regression has 19 passing tests.
 - Pre-submission file preflight passes.
 
 Still required:
@@ -163,7 +164,7 @@ Still required:
 - A real pilot still requires authentication, tenant isolation, audit retention, and clinical validation.
 - The safety rules are workflow-routing examples, not clinically validated diagnostic rules.
 - CareLoop does not diagnose, prescribe, or replace veterinary judgment.
-- The current proof surface is API-first rather than a polished owner-facing UI.
+- The hosted root page provides a responsive owner-facing workflow UI backed by the same live API used in the proof.
 
 ## TODO Official Form Fields
 

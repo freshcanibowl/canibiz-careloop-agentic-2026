@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CaniBiz CareLoop autonomous veterinary follow-up workflow demo">
+  <title>CaniBiz CareLoop</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="CaniBiz CareLoop home">CaniBiz <span>CareLoop</span></a>
+    <div class="topbar-meta">
+      <span>Synthetic demo data only</span>
+      <span class="cloud-state"><i aria-hidden="true"></i> Cloud Connected</span>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <nav class="workflow-rail" aria-label="CareLoop workflow">
+      <button class="rail-step active" type="button" data-target="plan-section"><b>1</b><span>Care plan</span></button>
+      <button class="rail-step" type="button" data-target="observation-section"><b>2</b><span>Owner update</span></button>
+      <button class="rail-step" type="button" data-target="actions-section"><b>3</b><span>Agent follow-up</span></button>
+      <button class="rail-step" type="button" data-target="brief-section"><b>4</b><span>VetBrief</span></button>
+    </nav>
+
+    <div class="workspace">
+      <section class="intro">
+        <div>
+          <h1>Turn a care plan into accountable follow-up.</h1>
+          <p>Gemini structures owner updates. Deterministic services control tasks and safety.</p>
+        </div>
+        <div id="notice" class="notice" role="status" aria-live="polite">Ready for a synthetic care plan.</div>
+      </section>
+
+      <section class="plan-grid" id="plan-section">
+        <form id="plan-form" class="plan-form">
+          <h2>Care plan</h2>
+          <div class="field-grid">
+            <label>Plan ID<input id="plan-id" required autocomplete="off"></label>
+            <label>Pet ID<input id="pet-id" required value="pet-pika" autocomplete="off"></label>
+            <label>Start date<input id="start-date" type="date" required></label>
+            <label>Review date<input id="review-date" type="date" required></label>
+          </div>
+          <label>Veterinary instructions
+            <textarea id="instructions" required rows="5">Transition food over 7 days. Record stool daily. Monitor appetite and vomiting. Review after 7 days.</textarea>
+          </label>
+          <button class="primary" type="submit">Create follow-up plan</button>
+        </form>
+
+        <aside class="evidence-rail" aria-label="Workflow evidence">
+          <h2>Workflow evidence</h2>
+          <div class="evidence-row"><span class="evidence-icon blue">✓</span><div><strong id="task-count">Typed tasks</strong><small>Generated from veterinary instructions</small></div></div>
+          <div class="evidence-row"><span class="evidence-icon green">◆</span><div><strong id="storage-label">Persistent workflow state</strong><small id="storage-detail">Checking runtime backend…</small></div></div>
+          <div class="evidence-row"><span class="evidence-icon blue">✦</span><div><strong>Gemini 3.5 Flash</strong><small>Owner language structured</small></div></div>
+          <div class="evidence-row"><span class="evidence-icon green">◇</span><div><strong>Safety route deterministic</strong><small>Validated services stay authoritative</small></div></div>
+        </aside>
+      </section>
+
+      <section class="workflow-board" aria-label="CareLoop workflow results">
+        <div class="board-panel timeline-panel">
+          <h2>Task timeline <span>Day 1–Day 7</span></h2>
+          <ol id="timeline" class="timeline">
+            <li class="empty-state">Create a plan to generate the timeline.</li>
+          </ol>
+          <div class="legend"><span><i class="done"></i> Done</span><span><i class="due"></i> Due</span><span><i></i> Pending</span></div>
+        </div>
+
+        <form id="observation-form" class="board-panel observation-panel">
+          <h2 id="observation-section">Owner observation</h2>
+          <label for="observation-day">Observation day</label>
+          <input id="observation-day" type="number" min="1" max="30" value="3" required>
+          <label for="owner-message">Describe today’s observations.</label>
+          <textarea id="owner-message" rows="8" maxlength="500" required placeholder="Describe stool, appetite, vomiting, or recovery…">Pika's stool was around 5 today. Appetite is normal and there has been no vomiting.</textarea>
+          <div class="counter"><span id="message-count">0</span> / 500</div>
+          <button class="primary" type="submit">✦ Structure update</button>
+          <p class="helper">Gemini will structure this update for the care team.</p>
+        </form>
+
+        <div class="board-panel actions-panel" id="actions-section">
+          <h2>Agent actions</h2>
+          <button id="check-followup" class="secondary" type="button">Run follow-up check</button>
+          <div id="actions" class="actions-list"><p class="empty-state">No actions yet.</p></div>
+          <div id="structured-output" class="structured-output" hidden></div>
+        </div>
+
+        <div class="board-panel brief-panel" id="brief-section">
+          <div class="panel-heading"><h2>VetBrief preview</h2><button id="generate-brief" class="text-button" type="button">Generate</button></div>
+          <article id="brief" class="brief-document">
+            <p class="empty-state">Submit an owner update, then generate the brief.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="safety-footer">CareLoop supports follow-up workflow. It does not diagnose, prescribe, or replace veterinary judgment.</footer>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

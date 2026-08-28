@@ -1,7 +1,10 @@
 import os
 from dataclasses import asdict
 from datetime import date
+from pathlib import Path
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from app.models.care_plan import CarePlan
@@ -18,6 +21,8 @@ from app.services.vetbrief_renderer import render_vetbrief
 from app.use_cases import create_follow_up_plan
 
 app = FastAPI(title="CaniBiz CareLoop Agent", version="0.3.0")
+_static_dir = Path(__file__).parent / "static"
+app.mount("/static", StaticFiles(directory=_static_dir), name="static")
 
 _task_repo = None
 _observation_repo = None
@@ -71,6 +76,11 @@ class VetBriefRequest(BaseModel):
     through_day: int = Field(ge=1)
 
 
+@app.get("/", include_in_schema=False)
+def demo_ui():
+    return FileResponse(_static_dir / "index.html")
+
+
 @app.get("/health")
 def health():
     return {
@@ -108,6 +118,7 @@ def submit_observation(req: ObservationRequest):
     return {
         "observation": asdict(obs),
         "safety": asdict(decision),
+        "tasks": updated,
     }
 
 

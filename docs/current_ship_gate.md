@@ -1,7 +1,7 @@
 # Current Ship Gate
 
 Local:
-- 17 tests passing
+- 19 tests passing
 - pre-submission file preflight passing
 
 Verified live:
@@ -10,6 +10,10 @@ Verified live:
 3. Firestore structured observation persistence deployed
 4. Gemini 3.5 Flash live structuring proven through Vertex AI
 5. revision `canibiz-careloop-agent-00005-h9g` passed full `scripts/live_proof.py` with `LIVE PROOF PASS`
+6. revision `canibiz-careloop-agent-00006-2z2` serves the responsive owner-facing UI at `/`
+7. public UI completed plan → Gemini observation → follow-up → VetBrief against Firestore
+8. desktop 1536×1024 and mobile 390×844 layouts checked in Browser
+9. revision `canibiz-careloop-agent-00006-2z2` passed the scripted `LIVE PROOF PASS` gate
 
 Still required before final submission:
 1. public demo video URL
