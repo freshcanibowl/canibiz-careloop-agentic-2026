@@ -115,9 +115,7 @@ https://canibiz-careloop-agent-kep7hzbbeq-as.a.run.app
 
 ## Public Repository Link
 
-Target GitHub account: https://github.com/freshcanibowl
-
-**TODO:** Add the final repository URL after the CareLoop repository is created under this account. A GitHub profile URL does not satisfy the official repository field.
+https://github.com/freshcanibowl/canibiz-careloop-agentic-2026
 
 ## Demo Video
 
@@ -158,7 +156,8 @@ Still required:
 - public or properly shared repository URL;
 - public demo video URL;
 - evidence screenshots;
-- public repository and demo-video URLs.
+- public demo-video URL;
+- final evidence screenshots.
 
 ## Known Limitations
 
@@ -176,7 +175,7 @@ Still required:
 - **Category:** Taskmaster.
 - **Organization name:** Absolute Global Resources PLT.
 - **Project start date (MM-DD-YY):** 08-20-26.
-- **Repository URL:** TODO — create a repository under https://github.com/freshcanibowl and use its full URL.
+- **Repository URL:** https://github.com/freshcanibowl/canibiz-careloop-agentic-2026
 - **Reproducible Testing instructions in README:** Yes.
 - **Hosted project URL:** https://canibiz-careloop-agent-kep7hzbbeq-as.a.run.app
 - **Testing instructions:** Use the Local regression and Live Cloud Run proof sections above.
