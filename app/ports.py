@@ -1,0 +1,9 @@
+from typing import Protocol
+from app.models.observation import StructuredObservation
+
+class ObservationStructurer(Protocol):
+    def structure(self, pet_id: str, day: int, message: str) -> StructuredObservation: ...
+
+class TaskRepository(Protocol):
+    def save_many(self, tasks: list) -> None: ...
+    def list_for_plan(self, plan_id: str) -> list[dict]: ...

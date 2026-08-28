@@ -1,0 +1,15 @@
+flowchart LR
+    V[Vet Care Plan] --> A[Google ADK CareLoop Orchestrator]
+    O[Owner Natural Language] --> G[Gemini 3.5 Structured Observation]
+    G --> C[Typed Contract Validation]
+    A --> D[Deterministic Domain Core]
+    C --> D
+    D --> S[Safety Routing Gate]
+    D --> F[(Firestore Task State)]
+    F --> M[Missing Action Detection]
+    M --> X[REQUEST_OWNER_FOLLOW_UP]
+    F --> B[VetBrief Builder]
+    S --> B
+    B --> R[Vet Professional Review]
+    API[FastAPI on Cloud Run] --- A
+    API --- F

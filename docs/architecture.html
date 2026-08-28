@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>CareLoop Architecture</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f5f7fb; font-family: "Segoe UI", Arial, sans-serif; color: #172033; }
+  .canvas { width: 1600px; height: 1000px; padding: 56px 64px; background: linear-gradient(145deg,#f8fbff,#eef3fb); }
+  h1 { margin: 0; font-size: 42px; letter-spacing: -.6px; }
+  .sub { margin: 10px 0 34px; color: #52627a; font-size: 19px; }
+  svg { width: 1472px; height: 820px; overflow: visible; }
+  .node rect { fill: #fff; stroke: #8ba2c8; stroke-width: 2; rx: 16; filter: drop-shadow(0 6px 10px rgba(29,49,83,.10)); }
+  .node text { font-size: 17px; font-weight: 650; text-anchor: middle; dominant-baseline: middle; fill: #172033; }
+  .google rect { fill: #eaf2ff; stroke: #4285f4; }
+  .domain rect { fill: #edf9f2; stroke: #34a853; }
+  .safety rect { fill: #fff5e6; stroke: #f9ab00; }
+  .output rect { fill: #f4efff; stroke: #8e63ce; }
+  .store rect { fill: #fff0f0; stroke: #ea4335; }
+  .arrow { stroke: #60738f; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+  .label { font-size: 14px; fill: #52627a; text-anchor: middle; }
+  .boundary { fill: none; stroke: #9cb0cc; stroke-width: 2; stroke-dasharray: 8 7; rx: 24; }
+  .boundary-label { font-size: 16px; font-weight: 700; fill: #52627a; }
+</style>
+<body>
+<main class="canvas">
+  <h1>CaniBiz CareLoop Agent — Google Cloud Architecture</h1>
+  <p class="sub">Gemini structures language; validated deterministic services control workflow state and safety.</p>
+  <svg viewBox="0 0 1472 820" role="img" aria-label="CareLoop architecture diagram">
+    <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#60738f"/></marker></defs>
+    <rect class="boundary" x="285" y="34" width="900" height="680"/>
+    <text class="boundary-label" x="310" y="62">Google Cloud</text>
+
+    <g class="node" transform="translate(20 125)"><rect width="210" height="82"/><text x="105" y="32">Vet Care Plan</text><text x="105" y="55">Owner Message</text></g>
+    <g class="node google" transform="translate(330 95)"><rect width="245" height="90"/><text x="122" y="34">FastAPI</text><text x="122" y="59">on Cloud Run</text></g>
+    <g class="node google" transform="translate(330 235)"><rect width="245" height="90"/><text x="122" y="34">Google ADK</text><text x="122" y="59">Orchestrator</text></g>
+    <g class="node google" transform="translate(650 95)"><rect width="245" height="90"/><text x="122" y="31">Gemini 3.5 Flash</text><text x="122" y="57">Vertex AI +</text><text x="122" y="75">Google GenAI SDK</text></g>
+    <g class="node domain" transform="translate(650 235)"><rect width="245" height="90"/><text x="122" y="34">Typed Contract</text><text x="122" y="59">Validation</text></g>
+    <g class="node domain" transform="translate(650 385)"><rect width="245" height="90"/><text x="122" y="34">Deterministic</text><text x="122" y="59">Domain Core</text></g>
+    <g class="node store" transform="translate(970 385)"><rect width="185" height="90"/><text x="92" y="34">Firestore</text><text x="92" y="59">Task State</text></g>
+    <g class="node safety" transform="translate(470 545)"><rect width="245" height="90"/><text x="122" y="34">Safety Routing +</text><text x="122" y="59">Missing Actions</text></g>
+    <g class="node output" transform="translate(790 545)"><rect width="245" height="90"/><text x="122" y="34">VetBrief</text><text x="122" y="59">Builder</text></g>
+    <g class="node" transform="translate(1240 520)"><rect width="205" height="120"/><text x="102" y="33">Outputs</text><text x="102" y="61">Follow-up Action</text><text x="102" y="88">Professional Brief</text></g>
+
+    <path class="arrow" d="M230 166 H330"/>
+    <path class="arrow" d="M452 185 V235"/>
+    <path class="arrow" d="M575 140 H650"/>
+    <path class="arrow" d="M772 185 V235"/>
+    <path class="arrow" d="M575 280 H650"/>
+    <path class="arrow" d="M772 325 V385"/>
+    <path class="arrow" d="M895 430 H970"/>
+    <path class="arrow" d="M720 475 L635 545"/>
+    <path class="arrow" d="M895 430 L930 545"/>
+    <path class="arrow" d="M715 590 H790"/>
+    <path class="arrow" d="M1035 590 H1240"/>
+    <path class="arrow" d="M1155 430 C1230 430 1200 560 1240 580"/>
+
+    <text class="label" x="278" y="151">HTTPS</text>
+    <text class="label" x="613" y="127">owner text</text>
+    <text class="label" x="936" y="416">persist</text>
+    <text class="label" x="1168" y="456">state</text>
+  </svg>
+</main>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "plan_id": "plan-pika-001",
+  "pet_id": "pet-pika",
+  "instructions": "Transition food over 7 days. Record stool daily. Monitor appetite and vomiting. Review after 7 days.",
+  "start_date": "2026-08-28",
+  "review_date": "2026-09-04"
+}
