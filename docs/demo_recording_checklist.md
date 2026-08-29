@@ -24,3 +24,10 @@
 - No error or stopped state.
 - Safety disclaimer remains visible or is explicitly shown before closing.
 - Architecture and live-proof evidence are shown after the product workflow, not instead of it.
+
+## Reference frames
+
+- `docs/evidence/live-ui-workflow.jpg` — opening/result state with Cloud Connected, revision, and guided-demo completion.
+- `docs/evidence/live-ui-results.jpg` — task timeline, Gemini structure, agent actions, VetBrief, and deterministic safety result.
+- `docs/evidence/live-proof-pass.png` — concise Cloud Run, Firestore, Vertex AI, and end-to-end proof slide.
+- `docs/architecture.png` — closing architecture frame.
