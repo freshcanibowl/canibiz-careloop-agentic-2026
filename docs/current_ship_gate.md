@@ -26,6 +26,7 @@ Verified live on revision `canibiz-careloop-agent-00008-md6`:
 - refreshed `docs/evidence/live-ui-workflow.png` captures the completed guided demo
 
 Verified live on revision `canibiz-careloop-agent-00009-vvz`:
+- the full `scripts/live_proof.py` gate completed with `LIVE PROOF PASS` on 29 Aug 2026
 - `/health` exposes the active Cloud Run revision alongside Firestore and Gemini runtime metadata
 - the public workflow evidence panel displays `revision 00009-vvz`
 - the UI and health endpoint now provide a direct deployment-to-proof audit trail

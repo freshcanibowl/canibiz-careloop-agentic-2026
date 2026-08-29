@@ -145,6 +145,7 @@ Suggested outline:
 Verified today:
 
 - Cloud Run deployment is live in project `ai-malaysia`.
+- Revision `canibiz-careloop-agent-00009-vvz` passed the complete `scripts/live_proof.py` gate on 29 Aug 2026.
 - Vertex AI ADC is used; no Gemini API key is mounted in the final runtime.
 - Task state and structured observation history are persisted in Firestore.
 - Gemini 3.5 Flash structured the live owner message successfully.

@@ -41,7 +41,7 @@ $whiteBrush = New-Object System.Drawing.SolidBrush $white
 $borderPen = New-Object System.Drawing.Pen ([System.Drawing.Color]::FromArgb(167, 185, 211)), 2
 
 $graphics.DrawString("CaniBiz CareLoop Agent — Live Google Cloud Proof", $titleFont, $inkBrush, 62, 48)
-$graphics.DrawString("Fresh verification • 28 Aug 2026 • project ai-malaysia", $subtitleFont, $mutedBrush, 66, 108)
+$graphics.DrawString("Fresh verification • 29 Aug 2026 • project ai-malaysia", $subtitleFont, $mutedBrush, 66, 108)
 
 $graphics.FillRectangle($softBlueBrush, 62, 165, 720, 250)
 $graphics.DrawRectangle($borderPen, 62, 165, 720, 250)

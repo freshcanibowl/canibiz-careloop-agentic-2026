@@ -9,7 +9,7 @@ All product data shown here is synthetic. No credentials, API keys, personal dat
 
 ## Supporting proof
 
-- `live-proof-pass.png` — rendered summary of the verified Google Cloud runtime and end-to-end proof.
+- `live-proof-pass.png` — rendered summary of the Google Cloud runtime and the full `LIVE PROOF PASS` verification repeated on revision `canibiz-careloop-agent-00009-vvz` on 29 Aug 2026.
 - `cloud-control-plane.md` — reproducible, read-only Cloud Run and Firestore configuration snapshot from project `ai-malaysia`.
 - `live-ui-workflow.png` — earlier full workflow capture retained for comparison.
 
