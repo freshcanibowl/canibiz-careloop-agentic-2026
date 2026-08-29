@@ -48,7 +48,7 @@ $graphics.DrawRectangle($borderPen, 62, 165, 720, 250)
 $graphics.DrawString("Cloud Run Runtime", $headingFont, $blueBrush, 92, 190)
 $runtime = @(
     "service: canibiz-careloop-agent",
-    "revision: canibiz-careloop-agent-00008-md6",
+    "revision: canibiz-careloop-agent-00009-vvz",
     "traffic: 100%",
     "storage: firestore",
     "AI: gemini / gemini-3.5-flash",
@@ -68,7 +68,8 @@ $health = @(
     'service: "careloop"',
     'storage_backend: "firestore"',
     'ai_backend: "gemini"',
-    'gemini_model: "gemini-3.5-flash"'
+    'gemini_model: "gemini-3.5-flash"',
+    'revision: "canibiz-careloop-agent-00009-vvz"'
 )
 $y = 240
 foreach ($line in $health) {

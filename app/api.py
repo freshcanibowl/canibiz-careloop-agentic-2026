@@ -89,6 +89,7 @@ def health():
         "storage_backend": os.getenv("CARELOOP_STORAGE_BACKEND", "memory"),
         "ai_backend": os.getenv("CARELOOP_AI_BACKEND", "deterministic"),
         "gemini_model": os.getenv("GEMINI_MODEL", "gemini-3.5-flash"),
+        "revision": os.getenv("K_REVISION", "local"),
     }
 
 

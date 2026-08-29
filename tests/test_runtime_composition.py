@@ -3,6 +3,8 @@ from app.runtime import build_task_repository, build_observation_structurer
 from app.storage import InMemoryTaskRepository
 from app.runtime import DeterministicObservationStructurer
 from app.adapters.gemini_observation import GeminiObservationStructurer
+from fastapi.testclient import TestClient
+from app.api import app
 
 
 def test_default_runtime_is_offline_and_reproducible(monkeypatch):
@@ -22,3 +24,11 @@ def test_gemini_runtime_uses_required_3_5_default(monkeypatch):
     assert adapter.model == "gemini-3.5-flash"
     assert adapter.project == "careloop-project"
     assert adapter.location == "global"
+
+
+def test_health_exposes_the_deployed_revision(monkeypatch):
+    monkeypatch.setenv("K_REVISION", "canibiz-careloop-agent-00008-md6")
+
+    response = TestClient(app).get("/health")
+
+    assert response.json()["revision"] == "canibiz-careloop-agent-00008-md6"

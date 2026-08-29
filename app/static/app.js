@@ -20,8 +20,13 @@ async function loadRuntime() {
     const response = await fetch("/health");
     const health = await response.json();
     const cloud = health.storage_backend === "firestore";
+    const revision = health.revision === "local"
+      ? "local"
+      : health.revision.replace("canibiz-careloop-agent-", "");
     $("#storage-label").textContent = cloud ? "Firestore persisted" : "In-memory local mode";
-    $("#storage-detail").textContent = cloud ? "Tasks and observation history" : "Offline reproducible development";
+    $("#storage-detail").textContent = cloud
+      ? `Tasks and observations · revision ${revision}`
+      : "Offline reproducible development · local revision";
     $(".cloud-state").innerHTML = `<i aria-hidden="true"></i> ${cloud ? "Cloud Connected" : "Local Runtime"}`;
   } catch (_) {
     $("#storage-detail").textContent = "Runtime status unavailable";

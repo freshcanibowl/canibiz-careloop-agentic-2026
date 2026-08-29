@@ -1,7 +1,7 @@
 # Current Ship Gate
 
 Local:
-- 19 tests passing
+- 20 tests passing
 - pre-submission file preflight passing
 
 Verified live:
@@ -24,6 +24,11 @@ Verified live on revision `canibiz-careloop-agent-00008-md6`:
 - one click executed all four real cloud stages without manual intervention
 - 11 tasks, Gemini structured observation, two follow-up actions, VetBrief, and download gate verified
 - refreshed `docs/evidence/live-ui-workflow.png` captures the completed guided demo
+
+Verified live on revision `canibiz-careloop-agent-00009-vvz`:
+- `/health` exposes the active Cloud Run revision alongside Firestore and Gemini runtime metadata
+- the public workflow evidence panel displays `revision 00009-vvz`
+- the UI and health endpoint now provide a direct deployment-to-proof audit trail
 
 Still required before final submission:
 1. public demo video URL

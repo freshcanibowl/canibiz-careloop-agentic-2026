@@ -52,7 +52,7 @@ python scripts\preflight.py
 Expected verified result:
 
 ```text
-19 passed
+20 passed
 PRE-SUBMISSION FILE PREFLIGHT PASS
 ```
 
@@ -113,7 +113,7 @@ Run against the deployed service:
 
 The proof creates a unique plan and verifies:
 
-1. the health endpoint reports Firestore, Gemini, and Gemini 3.5 Flash;
+1. the health endpoint reports Firestore, Gemini, Gemini 3.5 Flash, and the active Cloud Run revision;
 2. care-plan tasks are created and persisted;
 3. Gemini structures a natural-language owner observation;
 4. overdue requirements create follow-up actions;
