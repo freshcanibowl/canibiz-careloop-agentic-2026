@@ -78,6 +78,8 @@ The root UI runs the complete care-plan → owner update → agent follow-up →
 
 For a reproducible walkthrough, click `Run guided demo`. It executes the real four-stage cloud workflow once, stops on any error, and enables the VetBrief download only after completion.
 
+For the final Windows recording, `scripts/start_demo_recording.ps1` verifies the live runtime and opens a clean Edge app window together with the timed English narration.
+
 ## Google Cloud deployment
 
 Authenticate:

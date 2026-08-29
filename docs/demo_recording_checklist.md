@@ -2,6 +2,7 @@
 
 ## Before recording
 
+- From the repository root, run `./scripts/start_demo_recording.ps1`. It refuses to continue unless the public runtime is healthy and serving revision `00009-vvz`.
 - Open the hosted root URL in a clean browser tab.
 - Confirm the header says `Cloud Connected`.
 - Confirm Workflow evidence says `Firestore persisted` and `Gemini 3.5 Flash`.
@@ -37,3 +38,9 @@
 - Read `docs/demo_narration_en.md` as the final English voice-over.
 - Upload `docs/demo_captions_en.srt` if the recording platform supports captions.
 - Keep the final cut at or below 4:00; the scripted target is 3:52.
+
+## Windows capture
+
+- Press `Win+Alt+R` to start and stop Windows Game Bar recording.
+- The launcher opens the live site in a clean 1440×900 Edge app window and the narration in Notepad.
+- Windows normally saves the MP4 under `Videos\Captures`; review it before uploading.
