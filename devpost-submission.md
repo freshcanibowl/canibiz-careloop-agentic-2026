@@ -88,7 +88,7 @@ python scripts\preflight.py
 
 Current verified result:
 
-- `19 passed, 1 warning`
+- `20 passed, 1 warning`
 - `PRE-SUBMISSION FILE PREFLIGHT PASS`
 
 ### Live Cloud Run proof
@@ -100,7 +100,7 @@ Current verified result:
 
 The runner verifies:
 
-1. Cloud Run health reports Firestore, Gemini, and Gemini 3.5 Flash.
+1. Cloud Run health reports Firestore, Gemini, Gemini 3.5 Flash, and the active revision.
 2. A unique care plan creates and persists tasks.
 3. Gemini structures the owner observation into the expected typed fields.
 4. Missing required actions produce agentic follow-up actions.
@@ -134,10 +134,11 @@ Suggested outline:
 ## Screenshot Shot List
 
 1. **Ready:** `docs/evidence/live-proof-pass.png` — Cloud Run revision, runtime configuration, health result, persisted workflow, Gemini structure, follow-up actions, VetBrief, and `LIVE PROOF PASS`.
-2. **Ready:** `docs/evidence/live-ui-workflow.png` — public owner-facing workflow with persisted tasks, Gemini observation, agent actions, and VetBrief.
-3. **Ready:** `docs/architecture.png` — exported Google Cloud architecture diagram.
-4. **TODO:** Cloud Run Console page showing the active revision and service URL.
-5. **TODO:** Firestore Console showing `careloop_tasks` documents.
+2. **Ready:** `docs/evidence/live-ui-workflow.jpg` — Cloud Connected, revision `00009-vvz`, 11 typed tasks, and guided-demo completion.
+3. **Ready:** `docs/evidence/live-ui-results.jpg` — Gemini structure, autonomous follow-up actions, VetBrief, and deterministic safety result.
+4. **Ready:** `docs/architecture.png` — exported Google Cloud architecture diagram.
+5. **Ready:** `docs/evidence/cloud-control-plane.md` — authenticated, reproducible Cloud Run and Firestore configuration evidence.
+6. **Optional:** Google Cloud Console screenshots supplementing the reproducible control-plane evidence.
 
 ## Submission Readiness Notes
 
@@ -149,13 +150,13 @@ Verified today:
 - Gemini 3.5 Flash structured the live owner message successfully.
 - The live proof reached `LIVE PROOF PASS`.
 - A clean live-proof evidence image is available at `docs/evidence/live-proof-pass.png`.
-- Local regression has 19 passing tests.
+- Local regression has 20 passing tests.
 - Pre-submission file preflight passes.
 
 Still required:
 
 - public demo video URL;
-- Cloud Run and Firestore Console screenshots.
+- optional Cloud Run and Firestore Console screenshots.
 
 ## Known Limitations
 
@@ -166,7 +167,7 @@ Still required:
 - CareLoop does not diagnose, prescribe, or replace veterinary judgment.
 - The hosted root page provides a responsive owner-facing workflow UI backed by the same live API used in the proof.
 
-## TODO Official Form Fields
+## Official Form Fields
 
 - **Submitter Type:** Individuals.
 - **Submitter country of residence:** Malaysia.

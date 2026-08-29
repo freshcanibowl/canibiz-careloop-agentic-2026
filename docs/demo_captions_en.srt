@@ -1,0 +1,27 @@
+1
+00:00:00,000 --> 00:00:28,000
+Veterinary follow-up is often fragmented across discharge notes, messages, and memory. CareLoop turns that gap into an accountable follow-up workflow.
+
+2
+00:00:28,000 --> 00:01:05,000
+This live Cloud Run service confirms Firestore, Gemini 3.5 Flash, and the deployed revision. One click converts Pika's seven-day plan into eleven persistent typed tasks.
+
+3
+00:01:05,000 --> 00:01:42,000
+Gemini structures the owner's natural-language update into stool score five, normal appetite, and no vomiting. A typed contract validates the output before workflow state changes.
+
+4
+00:01:42,000 --> 00:02:18,000
+CareLoop compares required actions with evidence. Two observations are overdue, so it creates explicit REQUEST_OWNER_FOLLOW_UP actions in an auditable workflow.
+
+5
+00:02:18,000 --> 00:02:48,000
+Deterministic services remain authoritative for safety. This synthetic case routes to CONTINUE_MONITORING. CareLoop does not diagnose, prescribe, or replace veterinary judgment.
+
+6
+00:02:48,000 --> 00:03:22,000
+The VetBrief summarizes adherence, longitudinal observations, outstanding tasks, and safety status, then provides a downloadable professional handoff.
+
+7
+00:03:22,000 --> 00:03:52,000
+Cloud Run hosts the API, Firestore persists workflow evidence, Vertex AI runs Gemini 3.5 Flash, and Google ADK defines the orchestration boundary. CareLoop makes follow-up accountable while keeping clinical authority with professionals.

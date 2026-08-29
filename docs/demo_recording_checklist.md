@@ -31,3 +31,9 @@
 - `docs/evidence/live-ui-results.jpg` — task timeline, Gemini structure, agent actions, VetBrief, and deterministic safety result.
 - `docs/evidence/live-proof-pass.png` — concise Cloud Run, Firestore, Vertex AI, and end-to-end proof slide.
 - `docs/architecture.png` — closing architecture frame.
+
+## Recording files
+
+- Read `docs/demo_narration_en.md` as the final English voice-over.
+- Upload `docs/demo_captions_en.srt` if the recording platform supports captions.
+- Keep the final cut at or below 4:00; the scripted target is 3:52.
