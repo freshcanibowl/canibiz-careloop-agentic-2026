@@ -58,6 +58,18 @@ No clinical claims were generated or accepted solely because an AI coding assist
 7. **VetBrief** — summarizes adherence, longitudinal observations, missing actions, and review status.
 8. **Cloud proof surface** — exposes health, plan, observation, follow-up, and VetBrief endpoints on Cloud Run.
 
+## Other Data Sources
+
+The public proof uses only synthetic Pika care-plan and owner-observation fixtures created for this hackathon. CareLoop does not use external clinical datasets, scraped veterinary records, or real owner data.
+
+## Findings and Learnings
+
+- Model capability is most useful at the unstructured-language boundary; deterministic services should remain authoritative for workflow state and safety routing.
+- Typed validation is essential before model output changes persisted state.
+- Persisting both tasks and observations makes follow-up auditable across Cloud Run instances and restarts.
+- A one-click guided demo is useful only when it executes the same live APIs and stops visibly on failure.
+- Deployment revision metadata closes the gap between a screenshot and the exact Cloud Run build being demonstrated.
+
 ## Architecture
 
 CareLoop is a FastAPI service deployed to Google Cloud Run.
@@ -119,7 +131,7 @@ https://github.com/freshcanibowl/canibiz-careloop-agentic-2026
 
 ## Demo Video
 
-**TODO:** Add the public YouTube or Vimeo URL. The video must be public, in English or include English subtitles, and no longer than four minutes.
+**REQUIRED TODO:** Add the public YouTube or Vimeo URL. Official requirements make the demo video mandatory. It should be approximately four minutes, public, and in English or include English subtitles.
 
 Suggested outline:
 
@@ -141,6 +153,14 @@ Suggested outline:
 6. **Optional:** Google Cloud Console screenshots supplementing the reproducible control-plane evidence.
 
 ## Submission Readiness Notes
+
+Official deadline: `2026-09-01 00:00 UTC` (`2026-09-01 08:00` Malaysia time).
+
+Judging alignment:
+
+- **Innovation & Operational Utility — 40%:** persistent multi-step execution and explicit follow-up actions, not chat-only output.
+- **Architectural Discipline & Tech Stack — 30%:** typed contracts, Firestore state, least-privilege Cloud Run identity, deterministic safety, and revision traceability.
+- **Demo & Production Readiness — 30%:** public live UI, reproducible tests, architecture diagram, Cloud proof, and an unedited guided workflow.
 
 Verified today:
 
