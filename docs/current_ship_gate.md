@@ -34,7 +34,7 @@ Verified live on revision `canibiz-careloop-agent-00009-vvz`:
 - authenticated read-only Cloud Run and Firestore control-plane configuration is captured in `docs/evidence/cloud-control-plane.md`
 
 Still required before final submission:
-1. record and publish the public demo video
+1. review the captured 1:10 demo video and publish the accepted cut on YouTube or Vimeo
 2. optionally capture Google Cloud Console screenshots to supplement the reproducible CLI control-plane evidence
 3. upload the selected screenshots and architecture PNG during the later submission phase
 

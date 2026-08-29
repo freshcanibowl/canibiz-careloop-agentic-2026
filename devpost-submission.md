@@ -156,7 +156,7 @@ Verified today:
 
 Still required:
 
-- public demo video URL;
+- human review and public YouTube or Vimeo URL for the captured demo video;
 - optional Cloud Run and Firestore Console screenshots.
 
 ## Known Limitations
