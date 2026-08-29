@@ -15,6 +15,11 @@ Verified live:
 8. desktop 1536×1024 and mobile 390×844 layouts checked in Browser
 9. revision `canibiz-careloop-agent-00006-2z2` passed the scripted `LIVE PROOF PASS` gate
 
+Verified live on revision `canibiz-careloop-agent-00007-fvm`:
+- VetBrief download is disabled until a real brief is generated
+- generated backend-rendered brief downloads as a plan-scoped `.txt` handoff
+- public runtime reports Firestore persistence
+
 Still required before final submission:
 1. public demo video URL
 2. final screenshots, including Cloud Run and Firestore console evidence

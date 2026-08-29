@@ -109,6 +109,9 @@ input:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px r
 .brief-document ul { margin: 4px 0; padding-left: 18px; }
 .score { color: var(--amber); font-size: 28px; font-weight: 800; }
 .safety-state { display: inline-block; padding: 3px 6px; color: #145c2c; border: 1px solid #8bc79b; border-radius: 4px; background: var(--green-soft); font-size: 10px; font-weight: 750; }
+.download-button { width: 100%; margin-top: 11px; padding: 8px 4px; border: 0; color: var(--blue); background: transparent; font-size: 12px; font-weight: 750; text-align: left; }
+.download-button:hover:not(:disabled) { text-decoration: underline; }
+.download-button:disabled { color: #98a2b3; cursor: not-allowed; }
 
 .safety-footer { min-height: 50px; display: flex; align-items: center; padding: 11px 31px; border-top: 1px solid var(--line); color: #556176; background: white; font-size: 12px; }
 

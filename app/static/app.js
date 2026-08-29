@@ -1,4 +1,4 @@
-const state = { planId: "", petId: "", tasks: [], observation: null };
+const state = { planId: "", petId: "", tasks: [], observation: null, renderedBrief: "" };
 const $ = (selector) => document.querySelector(selector);
 
 function isoDate(offsetDays = 0) {
@@ -156,9 +156,25 @@ $("#generate-brief").addEventListener("click", async () => {
   try {
     const result = await request("/vetbrief", { plan_id: state.planId, pet_id: state.petId, through_day: 4 });
     renderBrief(result.brief);
+    state.renderedBrief = result.rendered;
+    $("#download-brief").disabled = false;
     activateStep(3);
     setNotice("VetBrief generated from persisted workflow evidence.", "success");
   } catch (error) { setNotice(error.message, "error"); }
+});
+
+$("#download-brief").addEventListener("click", () => {
+  if (!state.renderedBrief) return;
+  const blob = new Blob([state.renderedBrief], { type: "text/plain;charset=utf-8" });
+  const link = document.createElement("a");
+  const safePlanId = state.planId.replace(/[^a-z0-9_-]/gi, "-");
+  link.href = URL.createObjectURL(blob);
+  link.download = `VetBrief-${safePlanId}.txt`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(link.href);
+  setNotice("VetBrief downloaded for professional review.", "success");
 });
 
 document.querySelectorAll(".rail-step").forEach((step, index) => step.addEventListener("click", () => {

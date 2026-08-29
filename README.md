@@ -16,6 +16,7 @@ CareLoop is a workflow aid. It does not diagnose, prescribe, or replace veterina
 - Deterministic routing to `CONTINUE_MONITORING` or `PROFESSIONAL_REVIEW_REQUIRED`
 - Longitudinal VetBrief rendering
 - Responsive owner-facing workflow UI at `/`
+- Downloadable plain-text VetBrief for professional handoff
 - FastAPI service deployed to Google Cloud Run
 
 ## Architecture
