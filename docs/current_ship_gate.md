@@ -30,10 +30,11 @@ Verified live on revision `canibiz-careloop-agent-00009-vvz`:
 - the public workflow evidence panel displays `revision 00009-vvz`
 - the UI and health endpoint now provide a direct deployment-to-proof audit trail
 - a fresh guided demo completed on 29 Aug 2026 and produced final product/result reference frames
+- authenticated read-only Cloud Run and Firestore control-plane configuration is captured in `docs/evidence/cloud-control-plane.md`
 
 Still required before final submission:
 1. record and publish the public demo video
-2. capture Cloud Run and Firestore console evidence
+2. optionally capture Google Cloud Console screenshots to supplement the reproducible CLI control-plane evidence
 3. upload the selected screenshots and architecture PNG during the later submission phase
 
 Production boundary:

@@ -10,6 +10,7 @@ All product data shown here is synthetic. No credentials, API keys, personal dat
 ## Supporting proof
 
 - `live-proof-pass.png` — rendered summary of the verified Google Cloud runtime and end-to-end proof.
+- `cloud-control-plane.md` — reproducible, read-only Cloud Run and Firestore configuration snapshot from project `ai-malaysia`.
 - `live-ui-workflow.png` — earlier full workflow capture retained for comparison.
 
 The final demo should show the live product first. Supporting proof and `docs/architecture.png` belong at the end of the recording.
