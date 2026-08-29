@@ -20,6 +20,11 @@ Verified live on revision `canibiz-careloop-agent-00007-fvm`:
 - generated backend-rendered brief downloads as a plan-scoped `.txt` handoff
 - public runtime reports Firestore persistence
 
+Verified live on revision `canibiz-careloop-agent-00008-md6`:
+- one click executed all four real cloud stages without manual intervention
+- 11 tasks, Gemini structured observation, two follow-up actions, VetBrief, and download gate verified
+- refreshed `docs/evidence/live-ui-workflow.png` captures the completed guided demo
+
 Still required before final submission:
 1. public demo video URL
 2. final screenshots, including Cloud Run and Firestore console evidence

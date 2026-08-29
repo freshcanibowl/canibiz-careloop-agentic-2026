@@ -45,6 +45,10 @@ button { cursor: pointer; }
 .intro { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding: 30px 32px 24px; }
 .intro h1 { margin: 0 0 8px; color: #111b2e; font-size: clamp(24px, 2vw, 32px); line-height: 1.18; letter-spacing: -.55px; }
 .intro p { margin: 0; color: var(--muted); font-size: 15px; }
+.intro-actions { display: grid; justify-items: end; gap: 8px; }
+.demo-button { min-height: 36px; padding: 7px 12px; border: 1px solid var(--blue); border-radius: 7px; color: var(--blue); background: var(--white); font-size: 12px; font-weight: 750; }
+.demo-button:hover { background: var(--blue-soft); }
+.demo-button:disabled { cursor: wait; opacity: .62; }
 .notice { max-width: 310px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; color: var(--muted); background: var(--band); font-size: 13px; }
 .notice.success { color: var(--green); border-color: #a9d8b8; background: var(--green-soft); }
 .notice.error { color: #9b2c2c; border-color: #f1b1b1; background: #fff1f1; }
@@ -134,7 +138,8 @@ input:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px r
   .rail-step::after { display: none; }
   .intro { display: block; padding: 23px 18px 19px; }
   .intro h1 { font-size: 25px; }
-  .notice { margin-top: 17px; }
+  .intro-actions { justify-items: stretch; margin-top: 17px; }
+  .notice { max-width: none; }
   .plan-grid { grid-template-columns: 1fr; padding: 0 18px 25px; }
   .field-grid { grid-template-columns: 1fr; }
   .workflow-board { grid-template-columns: 1fr; }

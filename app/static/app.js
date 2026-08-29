@@ -91,6 +91,73 @@ function renderBrief(brief) {
 
 function updateCounter() { $("#message-count").textContent = $("#owner-message").value.length; }
 
+const pause = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
+
+$("#run-demo").addEventListener("click", async (event) => {
+  const button = event.currentTarget;
+  button.disabled = true;
+  $("#plan-id").value = `guided-pika-${Date.now().toString().slice(-7)}`;
+  $("#pet-id").value = "pet-pika";
+  $("#observation-day").value = "3";
+  $("#owner-message").value = "Pika's poop was softer today, around 5. She finished her food and has not vomited.";
+  updateCounter();
+  try {
+    state.planId = $("#plan-id").value;
+    state.petId = $("#pet-id").value;
+    state.renderedBrief = "";
+    $("#download-brief").disabled = true;
+
+    setNotice("Step 1/4 · Creating and persisting typed follow-up tasks…");
+    const created = await request("/plans", {
+      plan_id: state.planId,
+      pet_id: state.petId,
+      instructions: $("#instructions").value.trim(),
+      start_date: $("#start-date").value,
+      review_date: $("#review-date").value,
+    });
+    state.tasks = created.tasks;
+    $("#task-count").textContent = `${state.tasks.length} typed tasks`;
+    renderTimeline(state.tasks);
+    activateStep(1);
+    await pause(350);
+
+    setNotice("Step 2/4 · Gemini is structuring Pika’s owner update…");
+    const observed = await request("/observations", {
+      plan_id: state.planId,
+      pet_id: state.petId,
+      day: 3,
+      message: $("#owner-message").value,
+    });
+    state.observation = observed.observation;
+    state.tasks = observed.tasks;
+    renderTimeline(state.tasks);
+    const output = $("#structured-output");
+    output.hidden = false;
+    output.innerHTML = `<strong>Structured observation</strong><br>Stool: ${observed.observation.stool_score ?? "—"} · Appetite: ${observed.observation.appetite ?? "—"} · Vomiting: ${observed.observation.vomiting ?? "—"}<br>Safety: ${observed.safety.status}`;
+    activateStep(2);
+    await pause(350);
+
+    setNotice("Step 3/4 · Detecting missing actions and creating follow-up…");
+    const checked = await request("/follow-up/check", { plan_id: state.planId, current_day: 4 });
+    renderActions(checked.actions);
+    activateStep(2);
+    await pause(350);
+
+    setNotice("Step 4/4 · Building the professional VetBrief…");
+    const briefResult = await request("/vetbrief", { plan_id: state.planId, pet_id: state.petId, through_day: 4 });
+    renderBrief(briefResult.brief);
+    state.renderedBrief = briefResult.rendered;
+    $("#download-brief").disabled = false;
+    activateStep(3);
+    setNotice("Guided demo complete · Persistent task state, Gemini, agent follow-up, and VetBrief verified.", "success");
+    $("#brief-section").scrollIntoView({ behavior: "smooth", block: "center" });
+  } catch (error) {
+    setNotice(`Guided demo stopped · ${error.message}`, "error");
+  } finally {
+    button.disabled = false;
+  }
+});
+
 $("#plan-form").addEventListener("submit", async (event) => {
   event.preventDefault();
   const button = event.submitter;

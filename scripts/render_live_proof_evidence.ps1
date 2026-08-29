@@ -48,7 +48,7 @@ $graphics.DrawRectangle($borderPen, 62, 165, 720, 250)
 $graphics.DrawString("Cloud Run Runtime", $headingFont, $blueBrush, 92, 190)
 $runtime = @(
     "service: canibiz-careloop-agent",
-    "revision: canibiz-careloop-agent-00007-fvm",
+    "revision: canibiz-careloop-agent-00008-md6",
     "traffic: 100%",
     "storage: firestore",
     "AI: gemini / gemini-3.5-flash",

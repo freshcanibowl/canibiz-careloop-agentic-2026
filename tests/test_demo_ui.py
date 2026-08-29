@@ -17,6 +17,7 @@ def test_root_serves_the_careloop_workflow_ui():
     assert "Structure update" in response.text
     assert "VetBrief preview" in response.text
     assert "Download VetBrief" in response.text
+    assert "Run guided demo" in response.text
 
 
 def test_observation_response_returns_updated_timeline_tasks(monkeypatch):

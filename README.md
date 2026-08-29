@@ -76,6 +76,8 @@ http://127.0.0.1:8080/docs
 
 The root UI runs the complete care-plan → owner update → agent follow-up → VetBrief workflow against the same API used by the live proof.
 
+For a reproducible walkthrough, click `Run guided demo`. It executes the real four-stage cloud workflow once, stops on any error, and enables the VetBrief download only after completion.
+
 ## Google Cloud deployment
 
 Authenticate:
